@@ -1,4 +1,4 @@
-# Beer Distribution Database
+# Beer Company Database
 
 All SQL scripts are located in the `./sql` directory and can be executed on any PostgreSQL database independently of Docker. 
 They do not require this project to be set up.
@@ -30,7 +30,7 @@ To run the project, Docker needs to be installed.
 
 The Docker will build and run two services, Postgres 16 database service and PHP 8.3 service.
 
-### 1. Start Docker services
+### Start Docker services
 
 ```bash
 docker compose up -d
@@ -44,7 +44,7 @@ This will:
 
 ---
 
-### 2. Connect to PostgreSQL
+### Connect to PostgreSQL
 
 Connect to the database using any SQL client (DBeaver, DataGrip, etc.):
 
