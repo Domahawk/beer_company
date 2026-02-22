@@ -89,3 +89,6 @@ php ./scripts/seed.php
 ```bash
 docker compose down
 ```
+
+## ERD
+![Entity Relationship Diagram](./beer_company_ERDiagram.svg)
