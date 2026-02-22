@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16
+    container_name: beer_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: beer_company
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+    ports:
+        - "5432:5432"
+    volumes:
+        - ./pgdata:/var/lib/postgresql/data
+
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: beer_php
+    working_dir: /app
+    volumes:
+      - ./scripts:/app/scripts
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: beer_company
+      DB_USER: app
+      DB_PASSWORD: secret
+
+volumes:
+  db_data:
